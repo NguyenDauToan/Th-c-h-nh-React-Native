@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 
-// Component dùng props
 const Greeting = (props) => {
   return (
     <Text style={myStyle.text}>
@@ -10,7 +9,6 @@ const Greeting = (props) => {
   );
 };
 
-// Component dùng state
 const Counter = () => {
   const [count, setCount] = useState(0);
 

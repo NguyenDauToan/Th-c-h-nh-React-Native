@@ -8,18 +8,18 @@ const Project8 = () => {
         sections={groupPeopleByLastName(PEOPLE)}
         keyExtractor={(item) => `${item.name.first}-${item.name.last}`}
         renderSectionHeader={({ section }) => (
-          <View style={style.sectionHeader}>
-            <Text style={style.sectionTitle}>{section.title}</Text>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>{section.title}</Text>
           </View>
         )}
         renderItem={({ item }) => (
-          <View style={style.row}>
-            <Text style={style.name}>
+          <View style={styles.row}>
+            <Text style={styles.name}>
               {item.name.first} {item.name.last}
             </Text>
           </View>
         )}
-        ItemSeparatorComponent={() => <View style={style.separator} />}
+        ItemSeparatorComponent={() => <View style={styles.separator} />}
       />
     </SafeAreaView>
   );
@@ -72,7 +72,7 @@ const groupPeopleByLastName = (_data) => {
   });
 };
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   row: {
     paddingHorizontal: 10,
     paddingVertical: 10,
