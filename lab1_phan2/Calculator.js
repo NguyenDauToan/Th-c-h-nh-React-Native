@@ -78,7 +78,7 @@ const Calculator =()=>{
                 <View style = {{...myStyles.containerButtonLeft, backgroundColor:"aqua"}}>
                     {
                         buttonsLeft.map((row,index)=>
-                        <View style ={{...myStyles.containerRow,backgroundColor:(index==0)?bgColorFunction:bgColorNumber}}>
+                        <View key={index} style ={{...myStyles.containerRow,backgroundColor:(index==0)?bgColorFunction:bgColorNumber}}>
                             {
                                 row.map(item=>
                                     <TouchableOpacity style = {myStyles.button} onPress={()=> handleInput(item)}>
@@ -95,7 +95,7 @@ const Calculator =()=>{
                 <View style = {{...myStyles.containerButtonRight, backgroundColor:"blue"}}>
                     {
                         buttonsRight.map((item)=>
-                            <TouchableOpacity style={{...myStyles.button}} onPress={()=> handleInput(item)}>
+                            <TouchableOpacity key={item} style={{...myStyles.button}} onPress={()=> handleInput(item)}>
                                 <Text style = {{...myStyles.buttonText,color:"#fff"}}>{item}</Text>
                             </TouchableOpacity>
                     )

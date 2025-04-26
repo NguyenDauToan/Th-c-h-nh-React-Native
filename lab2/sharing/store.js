@@ -33,4 +33,4 @@ const store = configureStore({
   reducer: contactsSlice.reducer,
 });
 
-export default store;
+export default store

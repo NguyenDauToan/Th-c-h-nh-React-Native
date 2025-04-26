@@ -86,27 +86,34 @@ const UserScreens = ({navigation}) => {
 }
   
 const Drawer = createDrawerNavigator();
-const DrawerNavigator= ()=>{
-  return(
-  <NavigationContainer>
-    <Drawer.Navigator
-    initialRouteName='ContactsScreens'>
-      <Drawer.Screen name="ContactsScreens" component={ContactsScreens}
-      options={{
-        drawerIcon:getDrawerItemIcon('list'),
-      }}/>
-      <Drawer.Screen name="FavoritesScreens" component={FavoritesScreens}
-      options={{
-        drawerIcon:getDrawerItemIcon('start'),
-      }}/>
-      <Drawer.Screen name="UserScreens" component={UserScreens}
-      options={{
-        drawerIcon:getDrawerItemIcon('person'),
-      }}/>
+const DrawerNavigator = () => {
+  return (
+    <Drawer.Navigator initialRouteName='ContactsScreens'>
+      <Drawer.Screen
+        name="ContactsScreens"
+        component={ContactsScreens}
+        options={{
+          drawerIcon: getDrawerItemIcon('list'),
+        }}
+      />
+      <Drawer.Screen
+        name="FavoritesScreens"
+        component={FavoritesScreens}
+        options={{
+          drawerIcon: getDrawerItemIcon('star'),  // typo: 'start' → 'star'
+        }}
+      />
+      <Drawer.Screen
+        name="UserScreens"
+        component={UserScreens}
+        options={{
+          drawerIcon: getDrawerItemIcon('person'),
+        }}
+      />
     </Drawer.Navigator>
-  </NavigationContainer>
-  )
-}
+  );
+};
+
 
 const Tab = createMaterialBottomTabNavigator();
 // TabNavigator sẽ không bao gồm NavigationContainer

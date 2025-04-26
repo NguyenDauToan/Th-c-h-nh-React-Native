@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import Project1 from './lab1/Project1';
 import Project2 from './lab1/Project2';
 import Project3 from './lab1/Project3';
@@ -10,23 +10,23 @@ import Project7 from './lab1/Project7';
 import Project8 from './lab1/Project8';
 import Calculator from './lab1_phan2/Calculator';
 import Main from './lab1/Main';
+import DrawerNavigator from './lab2/Screen/lastScreen';
+import Options from './lab2/Screen/Options';
 
-import DrawerNavigator from './lab2/Screen/lastScreen'; // 🧩 Drawer Navigator
-import Options from './lab2/Screen/Options';            // màn Options
-
-import store from './lab2/sharing/store'; // 🧠 store Redux
-
+import store from './lab2/sharing/store';
 import "react-native-gesture-handler";
-import { Provider } from 'react-redux'; // ✅ Provider từ react-redux
+import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import { enableScreens } from 'react-native-screens'; // 🆕 thêm dòng này
+
+enableScreens(); // 🆕 gọi enableScreens ở đây
+
 const Stack = createNativeStackNavigator();
 
-export default function App() {
+function DrawerScreens() {
   return (
-    <Provider store={store}>
-      <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
           <Stack.Screen name="Home" component={Main} />
           <Stack.Screen name="Project1" component={Project1} />
@@ -38,20 +38,20 @@ export default function App() {
           <Stack.Screen name="Project7" component={Project7} />
           <Stack.Screen name="Project8" component={Project8} />
           <Stack.Screen name="Calculator" component={Calculator} />
-          <DrawerNavigator/>
-          {/* Đây, thêm Lab2 vào, sẽ load DrawerNavigator */}
-          <Stack.Screen 
-            name="Lab2" 
-            component={DrawerNavigator} 
-          />
-          {/* Màn Options riêng */}
+          <Stack.Screen name="Lab2" component={DrawerNavigator} options={{headerShown: false}} />
           <Stack.Screen name="Options" component={Options} />
         </Stack.Navigator>
+  );
+}
+export default function App() {
+  return (
+    <Provider store={store}>
+      <NavigationContainer>
+        <DrawerScreens />
       </NavigationContainer>
     </Provider>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { fetchContacts } from '../utility/Api';
 import ContactThumbnail from '../components/ContactThumbnail'; // Gõ đúng tên
-
+import { fetchContactsLoading,fetchContactsSuccess,fetchContactsError } from '../sharing/store';
 const keyExtractor = ({ phone }) => phone;
 
 const Favorites = ({ navigation }) => {

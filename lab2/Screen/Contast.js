@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ActivityIndicator, FlatList, Text, View, StyleSheet } from "react-native";
 import { fetchContacts } from "../utility/Api";
 import ContactListItem from "../components/ContactListItem";
-import { fetchContactsLoading,fetchContactsSuccess,fetchContactsError } from "../sharing/store";
+import { fetchContactsLoading, fetchContactsSuccess, fetchContactsError } from "../sharing/store";
 import { useDispatch,useSelector } from "react-redux";
 const Contact = ({ navigation }) => {
   const {contacts,loading,error} = useSelector((state) =>state);

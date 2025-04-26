@@ -10,7 +10,7 @@ const projects = [
   { name: 'Project6', label: 'Dự án 6' },
   { name: 'Project7', label: 'Dự án 7' },
   { name: 'Project8', label: 'Dự án 8' },
-  { name: 'Calcultor', label: 'Calculator' },
+  { name: 'Calculator', label: 'Calculator' },
   { name: 'Lab2', label: 'TabNavigator' },
 
 ];
