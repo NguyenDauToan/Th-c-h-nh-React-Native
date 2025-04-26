@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   StyleSheet,
   Text,
@@ -12,22 +13,23 @@ import ContactThumbnail from '../components/ContactThumbnail'; // Gõ đúng tê
 const keyExtractor = ({ phone }) => phone;
 
 const Favorites = ({ navigation }) => {
-  const [contacts, setContacts] = useState([]);
-  const [loading, setLoading] = useState(true); // phải là true
-  const [error, setError] = useState(false);
+  const {contacts,loading,error} = useSelector((state)=> state);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchContacts()
-      .then((contacts) => {
-        setContacts(contacts);
-        setLoading(false);
-        setError(false);
-      })
-      .catch((e) => {
-        console.log('Error fetching contacts:', e);
-        setLoading(false);
-        setError(true);
-      });
+    dispatch(fetchContactsLoading())
+        fetchContacts()
+          .then(
+            contacts=>
+            {
+              dispatch(fetchContactsSuccess(contacts))
+            }
+          )
+          .catch(
+            e=> {
+              dispatch(fetchContactsError())
+            }
+          )
   }, []); // Thêm dependency rỗng để tránh gọi lặp
 
   const renderFavoriteThumbnail = ({ item }) => {
