@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 
-import Contacts from "./Contast"; // nếu bạn giữ tên là Contast thì không cần sửa
+import Contacts from "./Contast"; 
 import Profile from "./Profile";
 import Favorites from "./Favorite";
 import User from "./User";
@@ -30,12 +30,11 @@ const ContactsScreens = () => (
       headerTintColor: 'white',
       headerStyle: { backgroundColor: 'tomato' },
       headerTitleAlign: 'center',
-      headerShown: false
       
     
     }}
   >
-    <Stack.Screen name="Contacts" component={Contacts} options={{ title: "Contacts" }} />
+    <Stack.Screen name="Contacts" component={Contacts} options={{ title: "Contacts",headerShown: false }}  />
     <Stack.Screen
       name="Profile"
       component={Profile}
@@ -116,7 +115,6 @@ const DrawerNavigator = () => {
 
 
 const Tab = createMaterialBottomTabNavigator();
-// TabNavigator sẽ không bao gồm NavigationContainer
 const TabNavigator = () => (
     <Tab.Navigator
       initialRouteName="ContactsScreens"

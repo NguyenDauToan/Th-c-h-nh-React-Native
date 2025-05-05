@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "4934169762",
+    "project_id": "appfood-c692c",
+    "storage_bucket": "appfood-c692c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4934169762:android:b035b065c63aac99a053fb",
+        "android_client_info": {
+          "package_name": "com.dautoan.lab1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzmHOt_VIznrf-rnzMIG3uXLwCZF5QLCE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
